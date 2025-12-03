@@ -1,7 +1,10 @@
-#include "include/globals.h"
+#include "./include/globals.h"
+#include "./include/raylib.h"
 
-Vector2 defaultWindowSize = {0};
-Vector2 inicialWindowSize = {0};
+Vector2 windowSize;
 
-float deltaTime = 0.0f;
+int Fps;
 
+float deltaTime;
+
+char* savePath = "~/.local/share/SQYD_tetris/";

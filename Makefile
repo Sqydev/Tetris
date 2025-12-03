@@ -2,7 +2,7 @@
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -I./src/include
+CFLAGS = -Wall -Wextra -Werror -I./src/include
 LDFLAGS = -lraylib -lm
 
 SRC_DIR = src

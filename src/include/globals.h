@@ -3,9 +3,11 @@
 
 #include "raylib.h"
 
-extern Vector2 defaultWindowSize;
-extern Vector2 inicialWindowSize;
+extern Vector2 windowSize;
+extern int Fps;
 
 extern float deltaTime;
+
+extern char* savePath;
 
 #endif
