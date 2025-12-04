@@ -11,8 +11,7 @@
 int main() {
 	// NOTE: Here expanding ~ to /home/USER/
 	const char* home = getenv("HOME");
-	savePath = malloc((strlen(savePath) + strlen(home) + 1) * sizeof(char));
-	// TODO: Here make merging strrings without ~ (becouse CharMerge merges also ~) (don't forget to add / after home/sqyd(here))
+	savePath = Strconcat(home, savePath + 1;
 
 	if(!IsSave()) {
 		CreateSave();
@@ -35,6 +34,8 @@ int main() {
 
 		EndDrawing();
 	}
+
+	free(savePath);
 
 	return 0;
 }
