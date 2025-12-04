@@ -3,7 +3,7 @@
 
 
 
-char* CharMerge(const char* first, const char* sec) {
+char* Strconcat(const char* first, const char* sec) {
     size_t first_len = strlen(first);
     size_t sec_len = strlen(sec);
     
