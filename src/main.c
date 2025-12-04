@@ -10,8 +10,10 @@
 
 int main() {
 	// NOTE: Here expanding ~ to /home/USER/
-	const char* home = getenv("HOME");
-	savePath = Strconcat(home, savePath + 1;
+	if(savePath[0] == '~') {
+		const char* home = getenv("HOME");
+		savePath = Strconcat(home, savePath + 1;
+	}
 
 	if(!IsSave()) {
 		CreateSave();
