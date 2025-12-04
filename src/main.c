@@ -3,29 +3,39 @@
 #include "./include/savesys.h"
 #include "include/utils.h"
 
-#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
-
-int main() {
+void Init() {
 	// NOTE: Here expanding ~ to /home/USER/
-	if(savePath[0] == '~') {
+	if(saveDirPath[0] == '~') {
 		const char* home = getenv("HOME");
-		savePath = Strconcat(home, savePath + 1;
+		saveDirPath = Strconcat(home, saveDirPath + 1);
 	}
+	saveFilePath = Strconcat(saveDirPath, saveFileName);
 
-	if(!IsSave()) {
-		CreateSave();
-		printf("%s", savePath);
-	}
 	LoadSave();
 
+	// NOTE: Window init
 	InitWindow(windowSize.x, windowSize.y, "Tetris");
-
 	Fps = GetMonitorRefreshRate(GetCurrentMonitor());
-
 	SetTargetFPS(Fps);
+
+	// NOTE: Save init
+	if(!IsSave()) {
+		mkdir_p(saveDirPath);
+
+		CreateSave();
+
+		LoadSave();
+
+		// NOTE: If there's no safe it reinits becouse without a save the size is 0
+		CloseWindow();
+		InitWindow(windowSize.x, windowSize.y, "Tetris");
+	}
+}
+
+int main() {
+	Init();
 
 	while(!WindowShouldClose()) {
 		deltaTime = GetFrameTime();
@@ -37,7 +47,9 @@ int main() {
 		EndDrawing();
 	}
 
-	free(savePath);
+	InitWindow(windowSize.x, windowSize.y, "Tetris");
+	free(saveDirPath);
+	free(saveFilePath);
 
 	return 0;
 }

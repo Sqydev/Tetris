@@ -8,6 +8,8 @@ extern int Fps;
 
 extern float deltaTime;
 
-extern char* savePath;
+extern char* saveDirPath;
+extern char* saveFilePath;
+extern char* saveFileName;
 
 #endif

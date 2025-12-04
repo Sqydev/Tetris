@@ -5,7 +5,9 @@
 
 
 bool IsSave(void);
+void mkdir_p(const char* what);
 void CreateSave(void);
 void LoadSave(void);
+void SaveSave(void);
 
 #endif

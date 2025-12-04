@@ -12,6 +12,7 @@ char* Strconcat(const char* first, const char* sec) {
 
     memcpy(res, first, first_len);
     memcpy(res + first_len, sec, sec_len);
+	res[first_len + sec_len] = '\0';
 
 	return res;
 }

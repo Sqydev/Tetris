@@ -7,4 +7,6 @@ int Fps;
 
 float deltaTime;
 
-char* savePath = "~/.local/share/SQYD_tetris/";
+char* saveDirPath = "~/.local/share/SQYD_tetris/";
+char* saveFileName = "save.dat";
+char* saveFilePath;
