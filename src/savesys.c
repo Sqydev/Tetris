@@ -1,3 +1,9 @@
+// NOTE: SAVE FILE'S OBJECT ORDER
+// 1: (int)Monitor Width
+// 2: (int)Monitor Height
+
+
+
 #include "./include/savesys.h"
 #include "./include/globals.h"
 #include "./include/raylib.h"
@@ -56,9 +62,6 @@ void mkdir_p(const char* what) {
 	free(workspace);
 }
 
-// NOTE: SAVE FILE'S OBJECT like ORDER
-// 1: (int)Monitor Width
-// 2: (int)Monitor Height
 void CreateSave(void) {
 	FILE* file = fopen(saveFilePath, "w");
 
@@ -70,6 +73,8 @@ void CreateSave(void) {
 	}
 
 	printf("INFO: Creating new save file in: %s\n", saveFilePath);
+
+	// NOTE: Saving monitor Wigth and Height becouse it's only saved at first openning of the game
 
 	// NOTE: Window sizes
 	fprintf(file, "%d\n", (int)(GetMonitorWidth(GetCurrentMonitor()) * 0.3125));
@@ -98,5 +103,4 @@ void LoadSave(void) {
 }
 
 void SaveSave(void) {
-
 }

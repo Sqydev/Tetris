@@ -12,4 +12,6 @@ extern char* saveDirPath;
 extern char* saveFilePath;
 extern char* saveFileName;
 
+extern float elapsedSaveTime;
+
 #endif

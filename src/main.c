@@ -4,6 +4,7 @@
 #include "include/utils.h"
 
 #include <stdlib.h>
+#include <stdio.h>
 
 void Init() {
 	// NOTE: Here expanding ~ to /home/USER/
@@ -39,6 +40,14 @@ int main() {
 
 	while(!WindowShouldClose()) {
 		deltaTime = GetFrameTime();
+
+		// NOTE: Save the game avery secound
+		elapsedSaveTime += deltaTime;
+		if(elapsedSaveTime >= 1.0f) {
+			SaveSave();
+
+			elapsedSaveTime = 0.0f;
+		}
 
 		BeginDrawing();
 

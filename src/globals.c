@@ -10,3 +10,5 @@ float deltaTime;
 char* saveDirPath = "~/.local/share/SQYD_tetris/";
 char* saveFileName = "save.dat";
 char* saveFilePath;
+
+float elapsedSaveTime = 0.0f;
