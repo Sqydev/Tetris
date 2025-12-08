@@ -8,10 +8,14 @@ extern int Fps;
 
 extern float deltaTime;
 
+extern Vector2 mousePos;
+
 extern char* saveDirPath;
 extern char* saveFilePath;
 extern char* saveFileName;
 
 extern float elapsedSaveTime;
+
+extern int gameState;
 
 #endif

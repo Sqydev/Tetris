@@ -1,10 +1,11 @@
 #include "./include/globals.h"
 #include "./include/raylib.h"
 #include "./include/savesys.h"
+#include "include/game.h"
+#include "include/menu.h"
 #include "include/utils.h"
 
 #include <stdlib.h>
-#include <stdio.h>
 
 void Init() {
 	// NOTE: Here expanding ~ to /home/USER/
@@ -33,6 +34,8 @@ void Init() {
 		CloseWindow();
 		InitWindow(windowSize.x, windowSize.y, "Tetris");
 	}
+
+	gameState = 0;
 }
 
 int main() {
@@ -40,6 +43,7 @@ int main() {
 
 	while(!WindowShouldClose()) {
 		deltaTime = GetFrameTime();
+		mousePos = GetMousePosition();
 
 		// NOTE: Save the game avery secound
 		elapsedSaveTime += deltaTime;
@@ -49,14 +53,21 @@ int main() {
 			elapsedSaveTime = 0.0f;
 		}
 
-		BeginDrawing();
-
-		ClearBackground(WHITE);
-
-		EndDrawing();
+		switch(gameState) {
+			case 0:
+				MenuLoop();
+				break;
+			
+			case 1:
+				GameLoop();
+				break;
+			
+			case 2:
+				GameoverLoop();
+				break;
+		}
 	}
 
-	InitWindow(windowSize.x, windowSize.y, "Tetris");
 	free(saveDirPath);
 	free(saveFilePath);
 
