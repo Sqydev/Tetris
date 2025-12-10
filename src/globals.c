@@ -16,6 +16,7 @@ char* saveFilePath;
 float elapsedSaveTime = 0.0f;
 
 // NOTE:
+// gameState: -1 = close
 // gameState: 0 = menu
 // gameState: 1 = game
 // gameState: 2 = gameover

@@ -42,7 +42,7 @@ void Init() {
 int main() {
 	Init();
 
-	while(!WindowShouldClose()) {
+	while(gameState != -1 && !WindowShouldClose()) {
 		deltaTime = GetFrameTime();
 		mousePos = GetMousePosition();
 
@@ -71,6 +71,8 @@ int main() {
 		// NOTE: Reset cursor
 		SetMouseCursor(MOUSE_CURSOR_DEFAULT);
 	}
+
+	CloseWindow();
 
 	free(saveDirPath);
 	free(saveFilePath);

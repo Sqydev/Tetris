@@ -3,12 +3,18 @@
 
 #include "./raylib.h"
 
+#define BUTTON_SPACING 20
+#define BUTTON_WIDTH (windowSize.x / 4)
+#define BUTTON_HEIGHT (windowSize.y / 20)
+
+
 char* Strconcat(const char* first, const char* sec); 
 
 bool IsButtonPressed(int posX, int posY, int width, int height);
 bool IsButtonDown(int posX, int posY, int width, int height);
 bool IsButtonRelesed(int posX, int posY, int width, int height);
 bool IsButtonHovered(int posX, int posY, int width, int height);
+Vector2 GetMenuButtonPosition(int index, int totalButtons);
 void DrawButton(const char* text, int fontsize, Color textcolor, int posX, int posY, int width, int height, Color color, bool enableHover, Color hoverColor);
 
 #endif

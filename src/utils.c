@@ -6,16 +6,15 @@
 #include <stdlib.h>
 
 
-
 char* Strconcat(const char* first, const char* sec) {
-    size_t first_len = strlen(first);
-    size_t sec_len = strlen(sec);
-    
+	size_t first_len = strlen(first);
+	size_t sec_len = strlen(sec);
+	
 	// TODO: Malloc err handling
 	char* res = malloc((first_len + sec_len + 1) * sizeof(char));
 
-    memcpy(res, first, first_len);
-    memcpy(res + first_len, sec, sec_len);
+	memcpy(res, first, first_len);
+	memcpy(res + first_len, sec, sec_len);
 	res[first_len + sec_len] = '\0';
 
 	return res;
@@ -46,6 +45,13 @@ bool IsButtonHovered(int posX, int posY, int width, int height) {
 		return true;
 	}
 	return false;
+}
+Vector2 GetMenuButtonPosition(int index, int totalButtons) {
+	float centerY = windowSize.y / 2;
+	float offsetY = -(totalButtons / 2.0f) * (BUTTON_HEIGHT + BUTTON_SPACING) + (index * (BUTTON_HEIGHT + BUTTON_SPACING));
+	float centerX = (windowSize.x / 2) - (BUTTON_WIDTH / 2);
+
+	return (Vector2){centerX, centerY + offsetY};
 }
 void DrawButton(const char* text, int fontsize, Color textcolor, int posX, int posY, int width, int height, Color color, bool enableHover, Color hoverColor) {
 	// NOTE: Be not afraid, if !enableHover then !IsButtonHovered won't even execute becouse that's how || works
