@@ -9,6 +9,6 @@ bool IsButtonPressed(int posX, int posY, int width, int height);
 bool IsButtonDown(int posX, int posY, int width, int height);
 bool IsButtonRelesed(int posX, int posY, int width, int height);
 bool IsButtonHovered(int posX, int posY, int width, int height);
-void DrawButton(const char* text, int fontsize, Color textcolor, int posX, int posY, int width, int height, Color color);
+void DrawButton(const char* text, int fontsize, Color textcolor, int posX, int posY, int width, int height, Color color, bool enableHover, Color hoverColor);
 
 #endif

@@ -20,3 +20,8 @@ float elapsedSaveTime = 0.0f;
 // gameState: 1 = game
 // gameState: 2 = gameover
 int gameState;
+
+// NOTE:
+// menuState: 0 = main
+// menuState: 1 = main_settings
+int menuState;

@@ -36,6 +36,7 @@ void Init() {
 	}
 
 	gameState = 0;
+	menuState = 0;
 }
 
 int main() {
@@ -66,6 +67,9 @@ int main() {
 				GameoverLoop();
 				break;
 		}
+
+		// NOTE: Reset cursor
+		SetMouseCursor(MOUSE_CURSOR_DEFAULT);
 	}
 
 	free(saveDirPath);

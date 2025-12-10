@@ -17,5 +17,6 @@ extern char* saveFileName;
 extern float elapsedSaveTime;
 
 extern int gameState;
+extern int menuState;
 
 #endif

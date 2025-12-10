@@ -47,8 +47,16 @@ bool IsButtonHovered(int posX, int posY, int width, int height) {
 	}
 	return false;
 }
-void DrawButton(const char* text, int fontsize, Color textcolor, int posX, int posY, int width, int height, Color color) {
-	DrawRectangle(posX, posY, width, height, color);
+void DrawButton(const char* text, int fontsize, Color textcolor, int posX, int posY, int width, int height, Color color, bool enableHover, Color hoverColor) {
+	// NOTE: Be not afraid, if !enableHover then !IsButtonHovered won't even execute becouse that's how || works
+	// NOTE: Only enableHover and not enableHover && enableColorHover becouse that just faster and simpler, also If you wanna disable only hoverColor then just set it to ba the same as color
+	if(!enableHover || !IsButtonHovered(posX, posY, width, height)) {
+		DrawRectangle(posX, posY, width, height, color);
+	}
+	else {
+		DrawRectangle(posX, posY, width, height, hoverColor);
+		SetMouseCursor(MOUSE_CURSOR_POINTING_HAND);
+	}
 
 	unsigned int TextLen = MeasureText(text, fontsize);
 
