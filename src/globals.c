@@ -14,6 +14,10 @@ char* saveFileName = "save.dat";
 char* saveFilePath;
 
 float elapsedSaveTime = 0.0f;
+float menubgElapsedTime = 0.0f;
+
+// Globals are filled with 0s
+int menuBackgroundState[10][20];
 
 // NOTE:
 // gameState: -1 = close

@@ -17,4 +17,6 @@ bool IsButtonHovered(int posX, int posY, int width, int height);
 Vector2 GetMenuButtonPosition(int index, int totalButtons);
 void DrawButton(const char* text, int fontsize, Color textcolor, int posX, int posY, int width, int height, Color color, bool enableHover, Color hoverColor);
 
+int BetterRand(int low, int high);
+
 #endif

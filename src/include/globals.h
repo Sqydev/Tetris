@@ -15,6 +15,9 @@ extern char* saveFilePath;
 extern char* saveFileName;
 
 extern float elapsedSaveTime;
+extern float menubgElapsedTime;
+
+extern int menuBackgroundState[10][20];
 
 extern int gameState;
 extern int menuState;
