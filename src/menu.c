@@ -6,31 +6,47 @@
 #include <stdio.h>
 
 
-// TODO: Naw, fix the logic when you can
+// TODO: DO it so there can be also floating blocks like in tetris
+// I know, make the menuBackgroundState chars and make it be like 10 colors so 51 is static(nonfalling) block of color identyfied by 5(idk what color it will be) and 50 is the same but falling and you can add more modes and you can make it static it it can't move becouse of a block
+// NOTE: X is type(color) of block, Y is mode of block(static(non falling) or not)
 void MenuBackgroundLogic(void) {
-	int type = BetterRand(0, 10);
-	int posRand = BetterRand(0, 4);
+	// NOTE: Remamber type is shape
+	int type = /*BetterRand(0, 9)*/ 0;
+	// NOTE: Remamber, it is both color and pos, ale it is divising something so don't make it zero
+	int posRand = BetterRand(1, 5);
 
 	// NOTE:
 	// 0: ##
 	//    ##
 	switch(type) {
 		case 0:
-			menuBackgroundState[(boardWidth - 2) / posRand][boardHeight - 1] = posRand;
-			menuBackgroundState[(boardWidth - 1) / posRand][boardHeight - 1] = posRand;
-			menuBackgroundState[(boardWidth - 2) / posRand][boardHeight - 2] = posRand;
-			menuBackgroundState[(boardWidth - 1) / posRand][boardHeight - 2] = posRand;
+			menuBackgroundState[(boardWidth - 2) / posRand][boardHeight - 1] = (Vector2){type, 0};
+			menuBackgroundState[(boardWidth - 1) / posRand][boardHeight - 1] = (Vector2){type, 0};
+			menuBackgroundState[(boardWidth - 2) / posRand][boardHeight - 2] = (Vector2){type, 0};
+			menuBackgroundState[(boardWidth - 1) / posRand][boardHeight - 2] = (Vector2){type, 0};
 	}
 
 	// NOTE: Gravity
 	for(int y = 1; y < boardHeight; y++) {
 		for(int x = 0; x < boardWidth; x++) {
-			if(menuBackgroundState[x][y - 1] != 0) {
+			if(menuBackgroundState[x][y - 1].x != 0 && menuBackgroundState[x][y].y == 0) {
 				menuBackgroundState[x][y - 1] = menuBackgroundState[x][y];
-				menuBackgroundState[x][y] = 0;
+				menuBackgroundState[x][y] = (Vector2){0, 0};
+			}
+			else {
+				menuBackgroundState[x][y].y = 1;
 			}
 		}
 	}
+
+	for(int i = 0; i < boardWidth; i++) {
+		for(int j = 0; j < boardHeight; j++) {
+			printf("| %d |", (int)menuBackgroundState[i][j].x);
+		}
+		printf("\n");
+	}
+		printf("\n");
+		printf("\n");
 }
 
 void MenuBackgroundDrawing(void) {

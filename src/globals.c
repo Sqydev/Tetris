@@ -17,7 +17,7 @@ float elapsedSaveTime = 0.0f;
 float menubgElapsedTime = 0.0f;
 
 // Globals are filled with 0s
-int menuBackgroundState[boardWidth][boardHeight];
+Vector2 menuBackgroundState[boardWidth][boardHeight];
 
 // NOTE:
 // gameState: -1 = close

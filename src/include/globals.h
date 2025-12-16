@@ -20,7 +20,7 @@ extern float menubgElapsedTime;
 #define boardWidth 10
 #define boardHeight 20
 
-extern int menuBackgroundState[boardWidth][boardHeight];
+extern Vector2 menuBackgroundState[boardWidth][boardHeight];
 
 extern int gameState;
 extern int menuState;
