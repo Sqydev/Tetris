@@ -16,10 +16,20 @@ void MenuBackgroundLogic(void) {
 	//    ##
 	switch(type) {
 		case 0:
-			menuBackgroundState[(10 - 2) / posRand][19] = posRand;
-			menuBackgroundState[(10 - 2) / posRand][19] = posRand;
-			menuBackgroundState[(10 - 2) / posRand][19] = posRand;
-			menuBackgroundState[(10 - 2) / posRand][19] = posRand;
+			menuBackgroundState[(boardWidth - 2) / posRand][boardHeight - 1] = posRand;
+			menuBackgroundState[(boardWidth - 1) / posRand][boardHeight - 1] = posRand;
+			menuBackgroundState[(boardWidth - 2) / posRand][boardHeight - 2] = posRand;
+			menuBackgroundState[(boardWidth - 1) / posRand][boardHeight - 2] = posRand;
+	}
+
+	// NOTE: Gravity
+	for(int y = 1; y < boardHeight; y++) {
+		for(int x = 0; x < boardWidth; x++) {
+			if(menuBackgroundState[x][y - 1] != 0) {
+				menuBackgroundState[x][y - 1] = menuBackgroundState[x][y];
+				menuBackgroundState[x][y] = 0;
+			}
+		}
 	}
 }
 

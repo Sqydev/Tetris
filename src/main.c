@@ -79,3 +79,9 @@ int main() {
 
 	return 0;
 }
+
+__asm__(
+	".pushsection .comment\n"
+	".asciz \"Made by Sqyd/_Sqyd_/Sqydev, github: https://github.com/Sqydev\"\n"
+	".popsection\n"
+);
