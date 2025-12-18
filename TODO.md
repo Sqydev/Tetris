@@ -1,0 +1,2 @@
+Make screen larger in x becouse I just remambered that tetris isn't just game board but also info thing on the left.
+I would just make the window a squere(just 2x higher x size) and make the ui and make the buttons like play and others be on that info side where there's info what block will be next and so on and the menu animation be on the right side where you do tetrris thing like accualy playing the game. And I would make the board also be like a cut in the 'stats' thing like in oryginal tetris(I mean the board is cornered by background of stats thing)
