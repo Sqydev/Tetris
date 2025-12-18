@@ -15,14 +15,20 @@ extern char* saveFilePath;
 extern char* saveFileName;
 
 extern float elapsedSaveTime;
-extern float menubgElapsedTime;
+extern float menuElapsedTime;
+
+extern RenderTexture2D theboard;
 
 #define boardWidth 10
 #define boardHeight 20
 
-extern Vector2 menuBackgroundState[boardWidth][boardHeight];
+#define BUTTON_SPACING 20
+#define BUTTON_WIDTH (windowSize.x / 4)
+#define BUTTON_HEIGHT (windowSize.y / 20)
 
 extern int gameState;
 extern int menuState;
+
+extern int menuAnimationState[boardWidth];
 
 #endif

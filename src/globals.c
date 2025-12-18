@@ -14,10 +14,9 @@ char* saveFileName = "save.dat";
 char* saveFilePath;
 
 float elapsedSaveTime = 0.0f;
-float menubgElapsedTime = 0.0f;
+float menuElapsedTime = 0.0f;
 
-// Globals are filled with 0s
-Vector2 menuBackgroundState[boardWidth][boardHeight];
+RenderTexture2D theboard;
 
 // NOTE:
 // gameState: -1 = close
@@ -30,3 +29,5 @@ int gameState;
 // menuState: 0 = main
 // menuState: 1 = main_settings
 int menuState;
+
+int menuAnimationState[boardWidth];

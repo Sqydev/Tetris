@@ -78,7 +78,7 @@ void CreateSave(void) {
 
 	// NOTE: Window sizes
 	fprintf(file, "%d\n", (int)(GetMonitorWidth(GetCurrentMonitor()) * 0.3125));
-	fprintf(file, "%d\n", (int)(GetMonitorHeight(GetCurrentMonitor()) * 0.8333));
+	fprintf(file, "%d\n", (int)(GetMonitorHeight(GetCurrentMonitor()) * 0.625));
 
 	fclose(file);
 }

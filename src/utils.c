@@ -69,6 +69,6 @@ void DrawButton(const char* text, int fontsize, Color textcolor, int posX, int p
 	DrawText(text, posX + (width - TextLen) / 2, posY + (height - fontsize) / 2, fontsize, textcolor);
 }
 
-int BetterRand(int low, int high) {
-	return rand() % (high - low + 1) + low;
+int BetterRand(int low, int high, int step) {
+	return low + (rand() % (((high - low) / step) + 1)) * step;
 }
