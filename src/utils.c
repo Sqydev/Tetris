@@ -69,6 +69,17 @@ void DrawButton(const char* text, int fontsize, Color textcolor, int posX, int p
 	DrawText(text, posX + (width - TextLen) / 2, posY + (height - fontsize) / 2, fontsize, textcolor);
 }
 
+
+void DrawTetrisyButton(int posX, int posY, int width, int height, Color color) {
+	float dimmingOne = 0.85f;
+	float dimmingTwo = 0.7f;
+
+	DrawRectangle(posX, posY, width, height, (Color){color.r, color.g, color.b, color.a});
+	DrawRectangle(posX, posY, (3 * width) / 4, (3 * height) / 4, (Color){color.r * dimmingOne, color.g * dimmingOne, color.b * dimmingOne, color.a});
+	DrawRectangle(posX, posY, width / 4, height, (Color){color.r * dimmingTwo, color.g * dimmingTwo, color.b * dimmingTwo, color.a});
+	DrawRectangle(posX, posY, width, height / 4, (Color){color.r * dimmingTwo, color.g * dimmingTwo, color.b * dimmingTwo, color.a});
+}
+
 int BetterRand(int low, int high, int step) {
 	return low + (rand() % (((high - low) / step) + 1)) * step;
 }

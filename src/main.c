@@ -39,9 +39,9 @@ void Init() {
 	menuState = 0;
 
 	// NOTE: Setup the animation
-	//for(int i = 0; i < boardHeight; i++) {
-	//	menuAnimationState[i] = BetterRand(-windowSize.y, windowSize.y, windowSize.y / boardHeight);
-	//}
+	for(int i = 0; i < boardHeight; i++) {
+		menuAnimationState[i] = BetterRand(-windowSize.y, 0, windowSize.x / boardWidth);
+	}
 }
 
 int main() {

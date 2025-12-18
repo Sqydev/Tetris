@@ -6,25 +6,25 @@
 // TODO: Fix the block having 10px offset
 void MenuBackgroundLogic(void) {
 	for(int i = 0; i < boardWidth; i++) {
-		menuAnimationState[i] += windowSize.y / boardHeight;
+		menuAnimationState[i] += windowSize.x / boardWidth;
 
-		if(menuAnimationState[i] >= windowSize.y + boardHeight) {
-			menuAnimationState[i] = BetterRand(-windowSize.y, 0, windowSize.y / boardHeight);
+		if(menuAnimationState[i] >= windowSize.y) {
+			menuAnimationState[i] = BetterRand(-windowSize.y, 0, windowSize.x / boardWidth);
 		}
 	}
 }
 
 void MenuBackgroundDrawing(void) {
 	for(int i = 0; i < boardWidth; i++) {
-		DrawRectangle(i * windowSize.x / boardWidth, menuAnimationState[i] - boardHeight, windowSize.x / boardWidth, windowSize.x / boardWidth, BLACK);
+		DrawTetrisyButton(i * windowSize.x / boardWidth, menuAnimationState[i], windowSize.x / boardWidth, windowSize.x / boardWidth, BLUE);
 	}
 }
 
 void MenuLoop(void) {
 	menuElapsedTime += deltaTime;
-	if(menuElapsedTime >= 0.16f) {
+	if(menuElapsedTime >= 0.05f) {
 		MenuBackgroundLogic();
-		menuElapsedTime -= 0.16f;
+		menuElapsedTime -= 0.05f;
 	}
 
 	switch(menuState) {
